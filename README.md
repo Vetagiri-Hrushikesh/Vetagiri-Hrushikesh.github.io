@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Hrushikesh</h1>
+<h1 align="center">Hello World! 👋, I'm Hrushikesh</h1>
 <h3 align="center">A passionate developer</h3>
 
 - 🔭 I’m currently working on [MaiCoStudio](https://github.com/maighacom)
