@@ -1,5 +1,10 @@
-<h1 align="center">Hello World! 👋, I'm Hrushikesh</h1>
+```
+#include <stdio.h>
 
-<h3 align="center">Developer | Programmer | Mentor</h3>
+int main()
+{
+  printf("Hello World!, I'm Hrushikesh 🤝");
+  return 0;
+}
 
 - 📫 How to reach me **vetagirih@gmail.com**
