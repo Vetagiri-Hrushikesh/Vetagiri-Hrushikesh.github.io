@@ -53,6 +53,7 @@ hr {
   position: relative;
 }
 
+
 .tab__container > ul {
   position: absolute;
   list-style: none;
@@ -142,12 +143,16 @@ hr {
 .button--secondary {
   padding: 10px 22px;
   border: 2px solid var(--primary-color);
+  /* background-color: black; */
+  color: black;
   transition: all 0.5s ease-out;
 }
 
 .button--secondary:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
+  /* border-color: var(--accent-color); */
+  /* color: var(--accent-color); */
+  border-radius: 20px;
+  color: black;
 }
 
 /* links */

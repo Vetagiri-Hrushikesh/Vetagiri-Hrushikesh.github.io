@@ -24,7 +24,7 @@ if (document.getElementsByClassName('demo').length > 0) {
             - Lofi Music 
             
             ###I believe in
-            - Utilize the opportunity 👍`;
+            - Utilize the opportunity once you get it 👍`;
   var speed = 40;
 
   function typeItOut () {

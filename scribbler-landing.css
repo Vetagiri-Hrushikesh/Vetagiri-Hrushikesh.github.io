@@ -32,10 +32,14 @@ nav {
   color: white;
   padding: 0 1rem;
   border-radius: 4px;
-  background-color: #232323;
+  /* background-color: #232323; */
+  background-color: black;
   min-height: 285px;
   animation: fadeUp 2s;
   box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.1);
+}
+.shell-session{
+  background-color: black;
 }
 
 .hero__terminal pre {

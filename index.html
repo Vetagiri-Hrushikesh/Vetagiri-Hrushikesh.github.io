@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon"  href="logo.svg"/>
       <title>Hrushikesh</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
@@ -22,125 +23,71 @@
         </ul>
       </nav>
     <div class="hero">
+      <img src="image.jpg" alt="profile Image" width="150px" height="150px" style="border-radius: 50%;">
       <h1 class="hero__title">Vetagiri Hrushikesh</h1>
       <!-- <p class="hero__description">Take your markdown notes in terminal</p> -->
     </div>
     <div class="hero__terminal">
       <pre>
-        <!-- Place your demo code here -->
         <code class="shell-session demo">Hello World ~ $ </code>
       </pre>
     </div>
     <div class="wrapper">
-      <!-- <div class="installation">
-        <h3 class="section__title">Projects</h3>
+      <div class="installation">
+        <!-- <h3 class="section__title">Projects</h3> -->
         <div class="tab__container">
            <ul class="tab__menu">
-            <li class="tab active" data-tab="mac">mac</li>
-            <li class="tab" data-tab="linux">linux</li>
-            <li class="tab" data-tab="win">win</li>
+            <li class="tab active" data-tab="projects">Projects</li>
+            <li class="tab" data-tab="about">About Me</li>
+            <li class="tab" data-tab="contact">Contact Me</li>
           </ul> 
           <pre class="nohighlight code">
-            <code class="tab__pane active mac">$  brew install scribbler</code>
-            <code class="tab__pane linux">$  apt-get install scribbler</code>
-            <code class="tab__pane win">$  gem install scribbler</code>
+            <code class="tab__pane active projects">
+              <div class="feature">
+                <div class="feature__item">
+                  <h3 class="section__title">MaiCoStudio</h3>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                </div>
+                <div class="feature__item">
+                  <h3 class="section__title">Visualizer</h3>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                </div>
+                <div class="feature__item">
+                  <h3 class="section__title">Website</h3>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+                </div>
+                <!-- <div class="feature__item">
+                  <h3 class="section__title">Website</h3>
+                  <p>You can expect common keybindings for scribbler. Customize bindings.json for your own liking! </p>
+                </div> -->
+              </div>
+            </code>
+            <code class="tab__pane about">
+
+              - 🔭 I’m currently working on <strong style="background-color: yellow;"><a href="https://github.com/maighacom">MaiCoStudio</a></strong>
+              <br>
+              - 🌱 I’m currently learning <strong>Apache Cordova, Mobile Hybrid Development, Golang, MongoDB</strong>
+              <br>
+              - 💬 Ask me about <strong>Apache Cordova</strong>
+              <br>
+              <div class="changelog__callout">
+                <a href="#" class="button--secondary">Download CV</a>
+              </div>
+            </code>
+            <code class="tab__pane contact">
+              <p>Email me at <strong><a style="background-color:yellow;" href="mailto:vetagirih@gmail.com">vetagirih@gmail.com</a></p></strong>
+              
+            </code>
           </pre>
         </div>
-      </div> -->
-      <!-- <div class="feature">
-        <div class="feature__item">
-          <h3 class="section__title">Fast & Light</h3>
-          <p>Start writing your notes immediately in any terminal! No more time wasted on navigating and opening your text editor.</p>
-        </div>
-        <div class="feature__item">
-          <h3 class="section__title">File Syncing</h3>
-          <p>Save your file in Dropbox then you can access to it from anywhere.</p>
-        </div>
-        <div class="feature__item">
-          <h3 class="section__title">Secure</h3>
-          <p>Encrypt your notes optionally. No one can get to your secrets! </p>
-        </div>
-        <div class="feature__item">
-          <h3 class="section__title">Configuration</h3>
-          <p>Maintain all your settings in a single <span class="code code--inline">config.json</span> file. Never need to redo the setting every single time jotting down a note.</p>
-        </div>
-        <div class="feature__item">
-          <h3 class="section__title">Highlightings</h3>
-          <p>For better readability, scribbler has a clean, beautiful color scheme allow you to scan files fast.</p>
-        </div>
-        <div class="feature__item">
-          <h3 class="section__title">Keybindings</h3>
-          <p>You can expect common keybindings for scribbler. Customize <span class="code code--inline">bindings.json</span> for your own liking! </p>
-        </div>
-      </div> -->
-      <!-- <div class="keybinding">
-        <ul class="keybinding__detail">
-          <h3 class="keybinding__title">Default Keybindings</h3>
-          <li>Quit without saving <span class="keybinding__label">Ctrl+C</span></li>
-          <li>Save <span class="keybinding__label">Cmd+S</span></li>
-          <li>Save and Quit <span class="keybinding__label">Ctrl+D</span></li>
-          <li>Undo <span class="keybinding__label">Cmd+Z</span></li>
-        </ul>
-        <ul class="keybinding__detail">
-          <h3 class="keybinding__title">Markdown Keybindings</h3>
-          <li><span class="keybinding__label">Ctrl+A</span> Insert Link Markdown</li>
-          <li><span class="keybinding__label">Ctrl+I</span> Insert Image Markdown</li>
-          <li><span class="keybinding__label">Ctrl+V</span> Insert YouTube Video</li>
-          <li><span class="keybinding__label">Ctrl+T</span> Insert Table</li>
-        </ul>
-      </div> -->
-      <!-- <div class="callout">
-        <p>Read our documentation for advanced keybindings and customization</p>
-        <a href="doc.html" class="button--primary">Documentation</a>
-      </div> -->
-    </div>
-    <!-- <div class="changelog">
-      <div class="wrapper">
-        <h3 class="section__title">Changelog</h3>
-        <div class="changelog__item">
-          <div class="changelog__meta">
-            <h4 class="changelog__title">v0.7</h4>
-            <small class="changelog__date">10/12/2017</small>
-          </div>
-          <div class="changelog__detail">
-            <ul>
-              <li>Improving the writing workflow with better key bindings</li>
-              <li>Design updates</li>
-              <li>SSL Verification for web hooks</li>
-              <li>Render Emoji</li>
-            </ul>
-          </div>
-        </div>
-        <div class="changelog__item">
-          <div class="changelog__meta">
-            <h4 class="changelog__title">v0.6</h4>
-            <small class="changelog__date">7/30/2017</small>
-          </div>
-          <div class="changelog__detail">
-            <ul>
-              <li>Adding Unicode support</li>
-              <li>Basic text highlighting</li>
-              <li>Fresh Design</li>
-            </ul>
-          </div>
-        </div>
-        <div class="changelog__item">
-          <div class="changelog__meta">
-            <h4 class="changelog__title">v0.5</h4>
-            <small class="changelog__date">5/10/2017</small>
-          </div>
-          <div class="changelog__detail">
-            <ul>
-              <li>Save default md file in new folders</li>
-              <li>Ability to quick search on existing notes</li>
-            </ul>
-          </div>
-        </div>
-        <div class="changelog__callout">
-          <a href="#" class="button--secondary">Checkout Full Log</a>
-        </div>
       </div>
-    </div> -->
+
+
+      
+
+
+    </div>
+    
     <!-- <footer class="footer"> .</footer> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
