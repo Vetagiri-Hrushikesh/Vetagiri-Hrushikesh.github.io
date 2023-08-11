@@ -15,13 +15,11 @@ if (document.getElementsByClassName('demo').length > 0) {
   var txt = `I'm Hrushikesh
 
             ###Get to know me in brief
-
-            - A Passionate Developer 👨🏽‍💻
-            - Self Managed 👍
+            - Passionate Developer 👨🏽‍💻
+            - Entrepreneurial Mindset 🚀
 
             ###Hobbies
-            - Gym rat 🏋️‍♂️
-            - Lofi Music 
+            - Photography 📸
             
             ###I believe in
             - Utilize the opportunity once you get it 👍`;

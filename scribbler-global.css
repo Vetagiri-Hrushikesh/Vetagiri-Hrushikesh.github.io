@@ -11,6 +11,19 @@
   --dark-gray-color: #444D56; 
   --bg-color: #F8F8FA;
   --code-bg-color: #F0E8E8;
+
+  --background-color-light: #F8F8FA;
+  --text-color-light: #444D56;
+  --code-bg-color-light: #F0E8E8;
+  
+  --background-color-dark: #232323;
+  --text-color-dark: #f4f4f4;
+  --code-bg-color-dark: #1E1E1E;
+
+  /* Default to light mode */
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+  --code-bg-color: var(--code-bg-color-light);
 }
 
 /* normalized */
@@ -18,7 +31,14 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
-  background-color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark-mode {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+  --code-bg-color: var(--code-bg-color-dark);
 }
 
 p {
