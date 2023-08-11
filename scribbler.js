@@ -19,10 +19,7 @@ if (document.getElementsByClassName('demo').length > 0) {
             - Entrepreneurial Mindset 🚀
 
             ###Hobbies
-            - Photography 📸
-            
-            ###I believe in
-            - Utilize the opportunity once you get it 👍`;
+            - Photography 📸`;
   var speed = 40;
 
   function typeItOut () {
