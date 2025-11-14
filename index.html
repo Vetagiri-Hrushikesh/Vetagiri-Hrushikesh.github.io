@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- 
+    Tax Planner Pro — MVP Demo
+    -----------------------------------
+    This is the main HTML entry file.
+    It loads:
+      - assets/style.css  (UI & layout)
+      - assets/app.js     (full logic)
+    
+    NOTE:
+    All business logic (scenarios, type A/B, comparison, PDF printing,
+    multi-year support) is inside app.js.
+  -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tax Planner Pro — MVP Demo</title>
+
+  <!-- Load CSS -->
+  <link rel="stylesheet" href="assets/style.css" />
+
+</head>
+
+<body>
+
+  <!-- TOP NAVBAR -->
+  <div class="topbar">
+    Tax Planner Pro — MVP Frontend Demo
+  </div>
+
+  <div class="wrap grid" style="flex-direction:column">
+
+    <!-- ===============================
+         MAIN CONTENT (LEFT)
+    ===================================-->
+    <div class="grid" style="align-items:flex-start">
+
+      <!-- LEFT SIDE: BASE INPUT + SCENARIO EDITOR + COMPARISON -->
+      <div class="col large">
+
+        <!-- HEADER -->
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2>Projection Inputs (<span id="currentYearLabel">2025</span>)</h2>
+
+          <!-- Year Select -->
+          <div>
+            Year:
+            <select id="yearSelect" onchange="changeYear()" style="margin-left:8px">
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- /////////////////////////////////////////
+             BASE TAX INPUT FORM
+        //////////////////////////////////////////-->
+        <div class="section">
+
+          <!-- INCOME FIELDS -->
+          <div class="row" style="margin-top:6px">
+            <div style="flex:1">
+              <label>Salary / Wages</label>
+              <input id="salary" type="number" value="1000000" />
+            </div>
+            <div style="width:160px">
+              <label>Interest Income</label>
+              <input id="interest" type="number" value="20000" />
+            </div>
+            <div style="width:160px">
+              <label>Business Income</label>
+              <input id="business" type="number" value="50000" />
+            </div>
+          </div>
+
+          <!-- DEDUCTION FIELDS -->
+          <div class="row" style="margin-top:8px">
+            <div style="flex:1">
+              <label>Investments / 80C</label>
+              <input id="invest" type="number" value="50000" />
+            </div>
+            <div style="width:200px">
+              <label>Home Loan Interest</label>
+              <input id="homeLoan" type="number" value="0" />
+            </div>
+            <div style="width:160px">
+              <label>Standard Deduction</label>
+              <input id="stdDed" type="number" value="125000" disabled />
+            </div>
+          </div>
+
+          <!-- BUTTONS -->
+          <div class="actions">
+            <button class="btn" onclick="calculateBase()">Calculate Base Tax</button>
+            <button class="btn ghost" onclick="openCreateScenario()">Create Scenario</button>
+            <button class="btn ghost" onclick="saveBaseProjection()">Save Projection</button>
+            <button class="btn ghost" onclick="exportCSV()">Export CSV</button>
+            <button class="btn ghost" onclick="openYearComparison()">Compare Base Years</button>
+          </div>
+
+          <!-- RESULT -->
+          <div class="small-note" id="baseTaxResult" style="margin-top:10px">
+            Base tax not calculated yet.
+          </div>
+        </div>
+
+        <!-- /////////////////////////////////////////
+             SCENARIO EDITOR (TYPE A & TYPE B)
+        //////////////////////////////////////////-->
+        <div id="scenarioEditor" style="display:none;margin-top:12px" class="section">
+
+          <h2 id="scenarioEditorTitle">New Scenario</h2>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Scenario Name</label>
+              <input id="scenarioName" type="text" placeholder="e.g., Salary +20%" />
+            </div>
+            <div style="width:220px">
+              <label>Scenario Type</label>
+              <select id="scenarioType">
+                <option value="A">Type A — Same Year</option>
+                <option value="B">Type B — Copy previous year</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="small-note">
+            Type B requires previous year's Base Projection (2025 → 2026).
+          </div>
+
+          <!-- SCENARIO INPUT FIELDS -->
+          <div style="margin-top:10px">
+
+            <div class="row">
+              <div style="flex:1">
+                <label>Salary / Wages</label>
+                <input id="s_salary" type="number" />
+              </div>
+              <div style="width:160px">
+                <label>Interest Income</label>
+                <input id="s_interest" type="number" />
+              </div>
+              <div style="width:160px">
+                <label>Business Income</label>
+                <input id="s_business" type="number" />
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:8px">
+              <div style="flex:1">
+                <label>Investments</label>
+                <input id="s_invest" type="number" />
+              </div>
+              <div style="width:180px">
+                <label>Home Loan Interest</label>
+                <input id="s_homeLoan" type="number" />
+              </div>
+              <div style="width:160px">
+                <label>Std Deduction</label>
+                <input id="s_stdDed" type="number" disabled />
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn" onclick="saveScenario()">Save Scenario</button>
+              <button class="btn ghost" onclick="cancelScenarioEditor()">Cancel</button>
+              <button class="btn ghost" onclick="prefillExample('salaryIncrease')">Prefill: Salary +20%</button>
+              <button class="btn ghost" onclick="prefillExample('investMore')">Prefill: Invest +50k</button>
+              <button class="btn ghost" onclick="prefillExample('homeLoan')">Prefill: Add Home Loan</button>
+            </div>
+
+            <div id="scenarioCalcResult" class="small-note" style="margin-top:8px"></div>
+
+            <!-- PRINT BUTTON -->
+            <button class="btn ghost" style="margin-top:10px" onclick="window.print()">
+              Print / Download PDF
+            </button>
+
+          </div>
+        </div>
+
+        <!-- MULTI-SCENARIO COMPARISON -->
+        <div id="multiCompare" style="display:none;margin-top:12px">
+          <h2>Scenario Comparison</h2>
+          <div id="compareArea"></div>
+
+          <button class="btn ghost" style="margin-top:10px" onclick="window.print()">
+            Print / Save PDF
+          </button>
+
+          <button class="btn ghost" onclick="closeCompare()">Close Comparison</button>
+        </div>
+
+        <!-- YEAR BASE COMPARISON -->
+        <div id="yearCompare" style="display:none;margin-top:12px">
+          <h2>2025 vs 2026 — Base Comparison</h2>
+          <div id="yearCompareArea"></div>
+
+          <button class="btn ghost" style="margin-top:10px" onclick="window.print()">
+            Print / Save PDF
+          </button>
+
+          <button class="btn ghost" onclick="closeYearCompare()">Close</button>
+        </div>
+
+      </div> <!-- end LEFT column -->
+
+      <!-- ===============================
+           RIGHT SIDE PANEL (Scenarios List)
+      ===================================-->
+      <div class="col small">
+
+        <h2>Projection List</h2>
+        <div class="small-note">Saved projections and scenarios.</div>
+
+        <div style="margin-top:8px">
+          <div class="note-block">
+            <b>Current Year:</b> <span id="yearBadge">2025</span>
+          </div>
+        </div>
+
+        <!-- BASE ENTRIES -->
+        <div style="margin-top:12px">
+          <div class="small" style="margin-bottom:6px">Saved Base Projections</div>
+          <div id="projectionsArea"></div>
+        </div>
+
+        <!-- SCENARIO LIST -->
+        <div style="margin-top:12px">
+          <div class="small" style="margin-bottom:6px">
+            Scenarios for <span id="yearBadge2">2025</span>
+          </div>
+
+          <div class="scenario-list" id="scenarioList"></div>
+
+          <div style="margin-top:8px">
+            <button class="btn" onclick="compareSelected()">Compare Selected</button>
+            <button class="btn ghost" onclick="deleteSelected()">Delete Selected</button>
+          </div>
+        </div>
+
+        <!-- TIPS -->
+        <div style="margin-top:12px" class="section">
+          <div class="small">Quick tips</div>
+          <ul style="padding-left:16px;margin-top:8px">
+            <li class="small">Type B copies previous year's base projection.</li>
+            <li class="small">Use multi-select for comparison.</li>
+            <li class="small">Print to PDF directly using browser print.</li>
+          </ul>
+        </div>
+
+      </div> <!-- end RIGHT column -->
+
+    </div> <!-- end row grid -->
+
+  </div> <!-- end wrap -->
+
+  <!-- LOAD MAIN JS -->
+  <script src="assets/app.js"></script>
+
+</body>
+</html>
