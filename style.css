@@ -1,0 +1,124 @@
+/* ---------------------------------------------------------
+   Tax Planner Pro — MVP Frontend Styles
+   Clean, simple, lightweight — no frameworks.
+---------------------------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+
+.topbar {
+  background: #2c3e50;
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.wrap {
+  padding: 20px;
+}
+
+.grid {
+  display: flex;
+  gap: 20px;
+}
+
+.col.large {
+  width: 70%;
+}
+
+.col.small {
+  width: 30%;
+}
+
+.section {
+  background: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  background: #3498db;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.btn:hover {
+  background: #2980b9;
+}
+
+.btn.ghost {
+  background: #ddd;
+  color: #000;
+}
+
+.btn.ghost:hover {
+  background: #ccc;
+}
+
+.small-note {
+  font-size: 13px;
+  color: #555;
+}
+
+.scenario-list {
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+
+.scenario-item {
+  padding: 8px;
+  margin-bottom: 6px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scenario-item input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.note-block {
+  background: #fff8d9;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.actions {
+  margin-top: 12px;
+}
