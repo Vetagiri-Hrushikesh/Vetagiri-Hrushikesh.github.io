@@ -20,7 +20,7 @@
   <title>Tax Planner Pro — MVP Demo</title>
 
   <!-- Load CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 
 </head>
 
@@ -121,7 +121,7 @@
             </div>
             <div style="width:220px">
               <label>Scenario Type</label>
-              <select id="scenarioType">
+              <select id="scenarioType" onchange="handleScenarioTypeChange()">
                 <option value="A">Type A — Same Year</option>
                 <option value="B">Type B — Copy previous year</option>
               </select>
@@ -176,32 +176,32 @@
             <div id="scenarioCalcResult" class="small-note" style="margin-top:8px"></div>
 
             <!-- PRINT BUTTON -->
-            <button class="btn ghost" style="margin-top:10px" onclick="window.print()">
-              Print / Download PDF
+            <button class="btn ghost" style="margin-top:10px" onclick="printSection('scenarioEditor')">
+              Print This Scenario
             </button>
 
           </div>
         </div>
 
         <!-- MULTI-SCENARIO COMPARISON -->
-        <div id="multiCompare" style="display:none;margin-top:12px">
+        <div id="multiCompare" class="section" style="display:none;margin-top:12px">
           <h2>Scenario Comparison</h2>
           <div id="compareArea"></div>
 
-          <button class="btn ghost" style="margin-top:10px" onclick="window.print()">
-            Print / Save PDF
+          <button class="btn ghost" style="margin-top:10px" onclick="printSection('multiCompare')">
+            Print This Comparison
           </button>
 
           <button class="btn ghost" onclick="closeCompare()">Close Comparison</button>
         </div>
 
         <!-- YEAR BASE COMPARISON -->
-        <div id="yearCompare" style="display:none;margin-top:12px">
+        <div id="yearCompare" class="section" style="display:none;margin-top:12px">
           <h2>2025 vs 2026 — Base Comparison</h2>
           <div id="yearCompareArea"></div>
 
-          <button class="btn ghost" style="margin-top:10px" onclick="window.print()">
-            Print / Save PDF
+          <button class="btn ghost" style="margin-top:10px" onclick="printSection('yearCompare')">
+            Print This Comparison
           </button>
 
           <button class="btn ghost" onclick="closeYearCompare()">Close</button>
